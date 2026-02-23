@@ -55,6 +55,16 @@ private enum NotificationMessageKeys {
         ("notification.message7.title", "notification.message7.body"),
         ("notification.message8.title", "notification.message8.body"),
         ("notification.message9.title", "notification.message9.body"),
-        ("notification.message10.title", "notification.message10.body")
+        ("notification.message10.title", "notification.message10.body"),
+        ("notification.message11.title", "notification.message11.body"),
+        ("notification.message12.title", "notification.message12.body"),
+        ("notification.message13.title", "notification.message13.body"),
+        ("notification.message14.title", "notification.message14.body"),
+        ("notification.message15.title", "notification.message15.body"),
+        ("notification.message16.title", "notification.message16.body"),
+        ("notification.message17.title", "notification.message17.body"),
+        ("notification.message18.title", "notification.message18.body"),
+        ("notification.message19.title", "notification.message19.body"),
+        ("notification.message20.title", "notification.message20.body")
     ]
 }
