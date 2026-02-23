@@ -1,0 +1,135 @@
+// MARK: - Common
+
+"common.ok" = "OK";
+"common.cancel" = "Cancel";
+"common.done" = "Done";
+"common.save" = "Save";
+"common.delete" = "Delete";
+"common.edit" = "Edit";
+"common.close" = "Close";
+"common.back" = "Back";
+"common.next" = "Next";
+"common.continue" = "Continue";
+"common.retry" = "Retry";
+"common.loading" = "Loading...";
+"common.error" = "Error";
+"common.success" = "Success";
+"common.complete" = "Complete";
+
+// MARK: - Onboarding
+
+"onboarding.welcome.title" = "Welcome";
+"onboarding.welcome.subtitle" = "Get started with our app";
+"onboarding.step1.title" = "Welcome";
+"onboarding.step1.description" = "This is the first onboarding screen.\nCustomize this content for your app.";
+"onboarding.step2.title" = "Discover Features";
+"onboarding.step2.description" = "This is the second onboarding screen.\nShowcase your app's key features here.";
+"onboarding.step3.title" = "Get Started";
+"onboarding.step3.description" = "This is the final onboarding screen.\nInvite users to start using your app.";
+"onboarding.getStarted" = "Get Started";
+"onboarding.skip" = "Skip";
+
+// MARK: - Tabs
+
+"tab.feature1" = "Home";
+"tab.feature2" = "Players";
+"tab.feature3" = "Matches";
+"tab.feature4" = "Settings";
+
+// MARK: - Feature 1
+
+"feature1.title" = "Home";
+"feature1.empty" = "No items yet";
+"feature1.detail.title" = "Details";
+"feature1.detail.content" = "This is the detail screen content.";
+
+// MARK: - Feature 2
+
+"feature2.title" = "Search";
+"feature2.placeholder" = "Search...";
+"feature2.noResults" = "No results found";
+"feature2.detail.title" = "Details";
+"feature2.detail.content" = "This is the Feature 2 detail screen content.";
+
+// MARK: - Feature 3
+
+"feature3.title" = "Profile";
+"feature3.settings" = "Settings";
+"feature3.logout" = "Log Out";
+"feature3.detail.title" = "Details";
+"feature3.detail.content" = "This is the Feature 3 detail screen content.";
+
+// MARK: - Feature 3 SubFlow
+
+"feature3.subFlow.step1.title" = "Step 1";
+"feature3.subFlow.step1.subtitle" = "This is the first step of the flow";
+"feature3.subFlow.step2.title" = "Step 2";
+"feature3.subFlow.step2.subtitle" = "This is the final step. Tap Complete to finish.";
+
+// MARK: - Settings
+"settings.title" = "Settings";
+"settings.privacyPolicy" = "Privacy Policy";
+"settings.termsOfUse" = "Terms of use";
+"settings.rate" = "Rate us";
+
+// MARK: - Notifications
+"notification.message1.title" = "🎰 Good luck today!";
+"notification.message1.body" = "Your big win might be just one spin away.";
+
+"notification.message2.title" = "💎 Exclusive bonus is waiting!";
+"notification.message2.body" = "Log in now and start playing.";
+
+"notification.message3.title" = "🍀 Feeling lucky today?";
+"notification.message3.body" = "It's the perfect time to place a bet.";
+
+"notification.message4.title" = "🔥 Hot games, real wins!";
+"notification.message4.body" = "Don't miss your chance today.";
+
+"notification.message5.title" = "🎁 Bonus time!";
+"notification.message5.body" = "Open the app and claim your reward.";
+
+"notification.message6.title" = "💰 Today could be your winning day.";
+"notification.message6.body" = "Start playing now!";
+
+"notification.message7.title" = "🎯 Ready to win big?";
+"notification.message7.body" = "Your next spin could change everything.";
+
+"notification.message8.title" = "🌟 New day, new chances!";
+"notification.message8.body" = "Jump in and try your luck.";
+
+"notification.message9.title" = "🚀 The action is live!";
+"notification.message9.body" = "Play now and feel the excitement.";
+
+"notification.message10.title" = "🏆 Big wins are happening right now.";
+"notification.message10.body" = "Join the game!";
+
+"notification.message11.title" = "💥 Don't stop now!";
+"notification.message11.body" = "Your lucky streak might just be starting.";
+
+"notification.message12.title" = "🎲 Feeling brave?";
+"notification.message12.body" = "Place a bet and see what happens.";
+
+"notification.message13.title" = "💸 Your bonus is still waiting.";
+"notification.message13.body" = "Don't let it go!";
+
+"notification.message14.title" = "🤑 Spin, play, win!";
+"notification.message14.body" = "It's that simple.";
+
+"notification.message15.title" = "🔔 Limited-time bonus!";
+"notification.message15.body" = "Open the app and grab it now.";
+
+"notification.message16.title" = "🌙 Late-night luck?";
+"notification.message16.body" = "Perfect time for a winning spin.";
+
+"notification.message17.title" = "🔥 Today's games are on fire!";
+"notification.message17.body" = "Join and play now.";
+
+"notification.message18.title" = "🍾 Celebrate with a win!";
+"notification.message18.body" = "Your moment could be right now.";
+
+"notification.message19.title" = "🎉 A lucky day starts here.";
+"notification.message19.body" = "Open the app and play.";
+
+"notification.message20.title" = "💎 Jackpot vibes today!";
+"notification.message20.body" = "Try your luck and win big.";
+
