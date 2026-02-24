@@ -4,6 +4,7 @@ on:
   push:
     tags:
       - "v*"
+  workflow_dispatch:   # ручной запуск: Actions → выбери workflow → Run workflow
 
 jobs:
   testflight:
