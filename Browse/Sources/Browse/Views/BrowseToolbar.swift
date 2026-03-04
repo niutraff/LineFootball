@@ -1,8 +1,8 @@
 import SwiftUI
 
-struct WebToolbar: View {
+struct BrowseToolbar: View {
 
-    @ObservedObject var store: SafariWebStore
+    @ObservedObject var store: BrowseWebStore
 
     var body: some View {
         HStack(spacing: 0) {

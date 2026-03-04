@@ -6,7 +6,12 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		DBA009B82F589641001C1790 /* Browse in Frameworks */ = {isa = PBXBuildFile; productRef = DBA009B72F589641001C1790 /* Browse */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
+		DBA009B52F58962F001C1790 /* Browse */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Browse; path = /Users/elizavetapolankova/Documents/niutraffApp/LineFootball/Browse; sourceTree = "<absolute>"; };
 		DE80E3562EFEB0D800B24701 /* LineFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
@@ -36,6 +41,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DBA009B82F589641001C1790 /* Browse in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -45,6 +51,7 @@
 		DE80E34D2EFEB0D800B24701 = {
 			isa = PBXGroup;
 			children = (
+				DBA009B52F58962F001C1790 /* Browse */,
 				DE80E3582EFEB0D800B24701 /* LineFootball */,
 				DE80E3572EFEB0D800B24701 /* Products */,
 			);
@@ -274,7 +281,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LineFootball/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Line Football Stats";
+				INFOPLIST_KEY_CFBundleDisplayName = "Line Football Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -315,7 +322,7 @@
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = LineFootball/Info.plist;
-				INFOPLIST_KEY_CFBundleDisplayName = "Line Football Stats";
+				INFOPLIST_KEY_CFBundleDisplayName = "Line Football Tracker";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -363,6 +370,13 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		DBA009B72F589641001C1790 /* Browse */ = {
+			isa = XCSwiftPackageProductDependency;
+			productName = Browse;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = DE80E34E2EFEB0D800B24701 /* Project object */;
 }

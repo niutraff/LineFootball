@@ -52,7 +52,6 @@
 "feature2.detail.content" = "This is the Feature 2 detail screen content.";
 
 // MARK: - Feature 3
-
 "feature3.title" = "Profile";
 "feature3.settings" = "Settings";
 "feature3.logout" = "Log Out";
@@ -60,7 +59,6 @@
 "feature3.detail.content" = "This is the Feature 3 detail screen content.";
 
 // MARK: - Feature 3 SubFlow
-
 "feature3.subFlow.step1.title" = "Step 1";
 "feature3.subFlow.step1.subtitle" = "This is the first step of the flow";
 "feature3.subFlow.step2.title" = "Step 2";
@@ -71,6 +69,12 @@
 "settings.privacyPolicy" = "Privacy Policy";
 "settings.termsOfUse" = "Terms of use";
 "settings.rate" = "Rate us";
+
+// MARK: - Onboarding
+"notification.onbr.title" = "Allow notifications about bonuses and promos";
+"notification.onbr.description" = "Stay tuned with best offers from our app.";
+"notification.onbr.agree" = "Yes, I Want Bonuses!";
+"notification.onbr.skip" = "Skip";
 
 // MARK: - Notifications
 "notification.message1.title" = "🎰 Good luck today!";

@@ -15,49 +15,62 @@ struct Feature4View: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .background(Color.palette(.darkGreenColor))
             
-            VStack {
-                ForEach(viewModel.settings) { item in
-                    Button {
-                        viewModel.openWebView(with: item.link)
-                    } label: {
-                        HStack {
-                            Text(item.titel)
-                                .foregroundStyle(Color.palette(.black900))
-                                .padding(.horizontal)
-                                .padding(.top, 10)
-                            Spacer()
-                            
-                            Image(systemName: "chevron.right")
-                                .foregroundStyle(Color.gray)
-                                .padding(.trailing)
-                        }
-                        .frame(height: 44)
+            VStack(spacing: 0) {
+                VStack(spacing: 0) {
+                    settingsRow(title: "settings.rate".localized()) {
+                        viewModel.onRateUsTapped()
                     }
-                    .frame(maxWidth: .infinity)
+
+                    separator
                     
-                    Color.gray.opacity(0.4).frame(height: 1).frame(maxWidth: .infinity)
-                        .padding(.leading)
+                    settingsRow(title: "settings.privacyPolicy".localized()) {
+                        viewModel.onPrivacyPolicyTapped()
+                    }
+
+                    separator
+
+                    settingsRow(title: "settings.termsOfUse".localized()) {
+                        viewModel.onTermsOfUseTapped()
+                    }
                 }
+                .background(Color.palette(.white))
+                .clipShape(RoundedRectangle(cornerRadius: 16, style: .continuous))
+                .padding(.horizontal, 16)
+                .padding(.top, 21)
+
+                Spacer()
             }
-            .frame(maxWidth: .infinity)
-            .background(Color.palette(.white))
-            .clipShape(RoundedRectangle(cornerRadius: 16))
-            .overlay(content: {
-                RoundedRectangle(cornerRadius: 16)
-                    .stroke(lineWidth: 1).fill(Color.palette(.borderColor))
-            })
-            .padding(.horizontal)
-            .padding(.top, 24)
         }
         .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
         .background(Color.palette(.backColor))
-        .fullScreenCover(isPresented: $viewModel.showWebView) {
-            if let url = viewModel.selectedURL {
-                Feature4DetailView(url: url, back: {
-                    viewModel.closeWebView()
-                })
+    }
+    
+    private func settingsRow(title: String, action: @escaping () -> Void) -> some View {
+        Button {
+            action()
+        } label: {
+            HStack {
+                Text(title)
+                    .font(.custom(FontFamily.regular, size: 17))
+                    .foregroundColor(.black)
+
+                Spacer()
+
+                Image(systemName: "chevron.right")
+                    .font(.system(size: 14, weight: .medium))
+                    .foregroundColor(Color.palette(.grayColor))
             }
+            .padding(.horizontal, 16)
+            .frame(height: 56)
         }
+        .buttonStyle(.plain)
+    }
+
+    private var separator: some View {
+        Rectangle()
+            .fill(Color.gray.opacity(0.4))
+            .frame(height: 1)
+            .padding(.leading, 16)
     }
 }
 

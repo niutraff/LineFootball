@@ -1,9 +1,9 @@
 import SwiftUI
 import SafariServices
 
-struct SafariSheetModifier: ViewModifier {
+struct BrowseSheetModifier: ViewModifier {
 
-    @ObservedObject var store: SafariWebStore
+    @ObservedObject var store: BrowseWebStore
 
     func body(content: Content) -> some View {
         content.sheet(
@@ -58,7 +58,7 @@ struct SafariViewControllerRepresentable: UIViewControllerRepresentable {
 
 
 extension View {
-    func safariSheet(store: SafariWebStore) -> some View {
-        modifier(SafariSheetModifier(store: store))
+    func browseSheet(store: BrowseWebStore) -> some View {
+        modifier(BrowseSheetModifier(store: store))
     }
 }

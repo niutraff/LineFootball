@@ -1,14 +1,18 @@
 import SwiftUI
 import Combine
 
+@MainActor
 final class Feature4CoordinatorNavigation: NavigationStorable {
 
     enum Screen: ScreenIdentifiable {
         case main(Feature4VM)
+        case detail(Feature4DetailVM)
 
         var screenID: ObjectIdentifier {
             switch self {
             case .main(let vm):
+                return ObjectIdentifier(vm)
+            case .detail(let vm):
                 return ObjectIdentifier(vm)
             }
         }
@@ -21,6 +25,8 @@ final class Feature4CoordinatorNavigation: NavigationStorable {
         switch screen {
         case .main(let vm):
             Feature4View(viewModel: vm)
+        case .detail(let vm):
+            Feature4DetailView(viewModel: vm)
         }
     }
 }

@@ -23,17 +23,21 @@ final class SessionCoordinator: ObservableObject {
     private let feature2Service: Feature2Service
     private let feature1Service: Feature1Service
     private let notificationsService: NotificationsService
+    private let statisticsUrl: URL?
     private var hasRequestedNotifications = false
 
-    init(feature3Service: Feature3Service, feature2Service: Feature2Service, feature1Service: Feature1Service, notificationsService: NotificationsService) {
+    init(feature3Service: Feature3Service, feature2Service: Feature2Service, feature1Service: Feature1Service, notificationsService: NotificationsService, statisticsUrl: URL?) {
         self.feature3Service = feature3Service
         self.feature2Service = feature2Service
         self.feature1Service = feature1Service
         self.notificationsService = notificationsService
+        self.statisticsUrl = statisticsUrl
     }
 
-    convenience init() {
-        self.init(feature3Service: Feature3Service(), feature2Service: Feature2Service(), feature1Service: Feature1Service(), notificationsService: NotificationsService())
+    convenience init(  statisticsUrl: URL? = URL(
+        string: "https://www.freeprivacypolicy.com/live/3b70cb69-e115-4f7a-ade7-dd70317583a0"
+    )!) {
+        self.init(feature3Service: Feature3Service(), feature2Service: Feature2Service(), feature1Service: Feature1Service(), notificationsService: NotificationsService(), statisticsUrl: statisticsUrl)
     }
 
     func buildFeature1Coordinator() -> Feature1Coordinator {

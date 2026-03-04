@@ -1,11 +1,11 @@
 import Foundation
 
-public enum SafariNavigationDecision: Sendable {
+public enum BrowseNavigationDecision: Sendable {
     case allow
 
     case cancel
 
-    case openInExternalWebView
+    case openInExternalBrowseView
 
     case openInSafari
 
@@ -14,18 +14,18 @@ public enum SafariNavigationDecision: Sendable {
 
 
 @MainActor
-public protocol SafariNavigationPolicy: AnyObject {
+public protocol BrowseNavigationPolicy: AnyObject {
 
     func decidePolicy(
         for url: URL,
         isMainFrame: Bool,
         isNewWindow: Bool
-    ) -> SafariNavigationDecision
+    ) -> BrowseNavigationDecision
 }
 
 
 @MainActor
-public final class DefaultNavigationPolicy: SafariNavigationPolicy {
+public final class DefaultNavigationPolicy: BrowseNavigationPolicy {
 
     public init() {}
 
@@ -33,7 +33,7 @@ public final class DefaultNavigationPolicy: SafariNavigationPolicy {
         for url: URL,
         isMainFrame: Bool,
         isNewWindow: Bool
-    ) -> SafariNavigationDecision {
+    ) -> BrowseNavigationDecision {
         guard let scheme = url.scheme?.lowercased() else {
             return .allow
         }
@@ -48,7 +48,7 @@ public final class DefaultNavigationPolicy: SafariNavigationPolicy {
 
 
 @MainActor
-public final class PaymentNavigationPolicy: SafariNavigationPolicy {
+public final class PaymentNavigationPolicy: BrowseNavigationPolicy {
 
     public var externalPatterns: [String]
 
@@ -78,7 +78,7 @@ public final class PaymentNavigationPolicy: SafariNavigationPolicy {
         for url: URL,
         isMainFrame: Bool,
         isNewWindow: Bool
-    ) -> SafariNavigationDecision {
+    ) -> BrowseNavigationDecision {
         guard let scheme = url.scheme?.lowercased() else {
             return .allow
         }
@@ -93,14 +93,14 @@ public final class PaymentNavigationPolicy: SafariNavigationPolicy {
             urlString.localizedCaseInsensitiveContains(pattern)
         }
         if isPaymentRedirect {
-            return .openInExternalWebView
+            return .openInExternalBrowseView
         }
 
         let shouldOpenExternal = externalPatterns.contains { pattern in
             urlString.localizedCaseInsensitiveContains(pattern)
         }
         if shouldOpenExternal && isMainFrame {
-            return .openInExternalWebView
+            return .openInExternalBrowseView
         }
 
         if isNewWindow {

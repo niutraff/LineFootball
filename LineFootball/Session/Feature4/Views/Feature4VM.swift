@@ -3,31 +3,28 @@ import Combine
 
 @MainActor
 final class Feature4VM: ObservableObject {
-    @Published var settings: [SettingsData] = []
-    @Published var selectedURL: URL?
-    @Published var showWebView: Bool = false
+    struct Output {
+        let onRateUs: () -> Void
+        let onPrivacyPolicy: () -> Void
+        let onTermsOfUse: () -> Void
+    }
 
-    init() {
-        self.setupSettings()
+    var output: Output?
+
+    init() {}
+
+    func onRateUsTapped() {
+        output?.onRateUs()
     }
-    
-    func setupSettings() {
-        settings = [.privacyPolicy, .ternsOfCondition]
+
+    func onPrivacyPolicyTapped() {
+        output?.onPrivacyPolicy()
     }
-    
-    func openWebView(with url: URL) {
-        selectedURL = url
-        showWebView = true
-    }
-    
-    func closeWebView() {
-        showWebView = false
-        selectedURL = nil
+
+    func onTermsOfUseTapped() {
+        output?.onTermsOfUse()
     }
 }
 
-extension SettingsData {
-    static let privacyPolicy: Self = .init(titel: "settings.privacyPolicy".localized(), link: AppInfo.URLs.privacyLink)
-    static let ternsOfCondition: Self = .init(titel: "settings.termsOfUse".localized(), link: AppInfo.URLs.termsLink)
-}
+
 

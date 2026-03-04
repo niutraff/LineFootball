@@ -1,39 +1,28 @@
 import SwiftUI
+import Browse
 
 struct Feature4DetailView: View {
-    let url: URL
-    let back: () -> Void
+    @ObservedObject var viewModel: Feature4DetailVM
     
     var body: some View {
-        VStack(spacing: 0) {
-            headarView()
-            
-            SafariView(url: url, configuration: .minimal)
+        VStack {
+            BrowseView(
+                url: viewModel.url,
+                configuration: .minimal
+            )
+            .padding(.top, 30)
         }
-        .frame(maxWidth: .infinity, maxHeight: .infinity, alignment: .top)
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
         .background(Color.palette(.backColor))
-    }
-    
-    @ViewBuilder
-    private func headarView () -> some View {
-        HStack {
-            Button(action: back) {
-                Image(systemName: "chevron.left")
-                    .foregroundStyle(Color.palette(.greenColor))
+        .navigationView(
+            title: viewModel.title,
+            showsBackButton: true,
+            onBackButtonTap: {
+                DispatchQueue.main.async {
+                    viewModel.onBackTapped()
+                }
             }
-            .padding(.leading, 16)
-            .buttonStyle(.plain)
-            
-            Spacer()
-        }
-        .frame(maxWidth: .infinity, maxHeight: 40, alignment: .leading)
-        .background(Color.palette(.backColor))
+        )
     }
 }
 
-#Preview {
-    Feature4DetailView(
-        url: URL(string: "https://www.example.com")!,
-        back: {}
-    )
-}

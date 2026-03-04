@@ -1,22 +1,22 @@
 import SwiftUI
 
-struct ExternalSafariViewSheetModifier: ViewModifier {
+struct ExternalBrowseViewSheetModifier: ViewModifier {
 
-    @ObservedObject var store: SafariWebStore
-    @ObservedObject var externalStore: SafariWebStore
-    let configuration: SafariConfiguration
+    @ObservedObject var store: BrowseWebStore
+    @ObservedObject var externalStore: BrowseWebStore
+    let configuration: BrowseConfiguration
     let closeButtonTitle: String
 
     func body(content: Content) -> some View {
         content.sheet(
             isPresented: Binding(
-                get: { store.externalSafariViewURL != nil },
-                set: { if !$0 { store.externalSafariViewURL = nil } }
+                get: { store.externalBrowseViewURL != nil },
+                set: { if !$0 { store.externalBrowseViewURL = nil } }
             )
         ) {
-            if let url = store.externalSafariViewURL {
-                NavigationView {
-                    SafariViewRepresentable(
+            if let url = store.externalBrowseViewURL {
+                NavigationStack {
+                    BrowseViewRepresentable(
                         url: url,
                         store: externalStore,
                         configuration: externalConfiguration,
@@ -26,7 +26,7 @@ struct ExternalSafariViewSheetModifier: ViewModifier {
                     .toolbar {
                         ToolbarItem(placement: .navigationBarLeading) {
                             Button(closeButtonTitle) {
-                                store.externalSafariViewURL = nil
+                                store.externalBrowseViewURL = nil
                             }
                         }
                     }
@@ -35,8 +35,8 @@ struct ExternalSafariViewSheetModifier: ViewModifier {
         }
     }
 
-    private var externalConfiguration: SafariConfiguration {
-        SafariConfiguration(
+    private var externalConfiguration: BrowseConfiguration {
+        BrowseConfiguration(
             customUserAgent: configuration.customUserAgent,
             isZoomDisabled: configuration.isZoomDisabled,
             isBackgroundTransparent: configuration.isBackgroundTransparent,
@@ -49,13 +49,13 @@ struct ExternalSafariViewSheetModifier: ViewModifier {
 
 
 extension View {
-    func externalWebViewSheet(
-        store: SafariWebStore,
-        externalStore: SafariWebStore,
-        configuration: SafariConfiguration,
+    func externalBrowseViewSheet(
+        store: BrowseWebStore,
+        externalStore: BrowseWebStore,
+        configuration: BrowseConfiguration,
         closeButtonTitle: String = "Close"
     ) -> some View {
-        modifier(ExternalSafariViewSheetModifier(
+        modifier(ExternalBrowseViewSheetModifier(
             store: store,
             externalStore: externalStore,
             configuration: configuration,

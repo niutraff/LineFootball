@@ -10,8 +10,13 @@ struct AppCoordinatorView: View {
                 content(for: viewState)
             }
         }
+        .frame(maxWidth: .infinity, maxHeight: .infinity)
+        .overlay(content: overlayContent)
         .task {
             await coordinator.onAppear()
+        }
+        .fullScreenCover(item: $coordinator.notificationOnbVM) { vm in
+            NotificationOnbView(viewModel: vm)
         }
     }
 
@@ -21,8 +26,18 @@ struct AppCoordinatorView: View {
         case .session(let coordinator):
             SessionCoordinatorView(coordinator: coordinator)
             
-        case .mediaView(let url):
-            MediaViewContainer(url: url)
+        case .mediaView(let presentation):
+            MediaRemoteBrowseView(presentation: presentation)
+        }
+    }
+    
+    @ViewBuilder
+    private func overlayContent() -> some View {
+        if let overlay = coordinator.overlay {
+            switch overlay {
+            case .splash:
+                SplashView()
+            }
         }
     }
 }
