@@ -11,7 +11,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		DBA009B52F58962F001C1790 /* Browse */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Browse; path = /Users/elizavetapolankova/Documents/niutraffApp/LineFootball/Browse; sourceTree = "<absolute>"; };
+		DBA009B52F58962F001C1790 /* Browse */ = {isa = PBXFileReference; lastKnownFileType = wrapper; name = Browse; path = Browse; sourceTree = "<group>"; };
 		DE80E3562EFEB0D800B24701 /* LineFootball.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LineFootball.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
