@@ -48,7 +48,7 @@ curl --request POST \
   --header 'Content-Type: application/json' \
   --header 'Authorization: Basic YWRtaW46a3JNOE80ODRXS21s' \
   --data '{
-    "pdfUrl": "https://www.freeprivacypolicy.com/live/b7705891-8cec-4a3e-bb53-a001dd18d159",
+    "pdfUrl": "https://www.freeprivacypolicy.com/live/3b70cb69-e115-4f7a-ade7-dd70317583a0",
     "companyId": "69981faf11aa29aec49dc42d",
     "2": { "moderation": true },
     "3": { "moderation": false }
