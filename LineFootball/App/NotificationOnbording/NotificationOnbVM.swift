@@ -25,7 +25,8 @@ final class NotificationOnbVM: ObservableObject, Identifiable {
         Task {
             let granted = await notificationsService.requestAuthorization()
             if granted {
-                await notificationsService.scheduleNotifications()
+                @KeyValue(\.notificationTestMode) var isTestMode: Bool
+                await notificationsService.scheduleNotifications(testMode: isTestMode)
             }
             output?.onAccepted()
         }

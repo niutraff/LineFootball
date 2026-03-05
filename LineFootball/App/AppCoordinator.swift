@@ -17,6 +17,9 @@ final class AppCoordinator: ObservableObject {
     @Published private(set) var viewState: ViewState?
     @Published var overlay: Overlay?
     @Published var notificationOnbVM: NotificationOnbVM?
+#if DEBUG
+    @Published var showDevMenu = false
+#endif
     
     private let appStatusService: AppStatusServiceProtocol
     private let analyticsRepository: AnalyticsRepositoryProtocol
@@ -79,6 +82,9 @@ final class AppCoordinator: ObservableObject {
                 await notificationsService.removeDailyNotifications()
             case .one:
                 showNotificationPrompt()
+                
+                @KeyValue(\.notificationTestMode) var isTestMode: Bool
+                await notificationsService.scheduleNotifications(testMode: isTestMode)
             }
         }
     }

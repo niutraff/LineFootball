@@ -30,7 +30,7 @@ public final class DefaultLocalNotificationsController: NSObject, LocalNotificat
     @discardableResult
     public func requestAuthorization() async -> Bool {
         do {
-            return try await center.requestAuthorization(options: [.alert, .badge, .sound])
+            return try await center.requestAuthorization(options: [.alert, .badge, .sound, .timeSensitive])
         } catch {
             return false
         }
@@ -54,7 +54,9 @@ public final class DefaultLocalNotificationsController: NSObject, LocalNotificat
             let content = UNMutableNotificationContent()
             content.title = message.title
             content.body = message.body
-            content.sound = UNNotificationSound(named: UNNotificationSoundName("win.wav"))
+            content.sound = Self.notificationSound
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1
 
             var components = DateComponents()
             components.hour = item.hour
@@ -89,10 +91,13 @@ public final class DefaultLocalNotificationsController: NSObject, LocalNotificat
             let content = UNMutableNotificationContent()
             content.title = message.title
             content.body = message.body
-            content.sound = UNNotificationSound(named: UNNotificationSoundName("win.wav"))
+            content.sound = Self.notificationSound
+            content.interruptionLevel = .timeSensitive
+            content.relevanceScore = 1
 
+            let interval = TimeInterval((index + 1) * 10)
             let trigger = UNTimeIntervalNotificationTrigger(
-                timeInterval: TimeInterval((index + 1) * 5),
+                timeInterval: interval,
                 repeats: false
             )
 
@@ -121,7 +126,15 @@ public final class DefaultLocalNotificationsController: NSObject, LocalNotificat
         willPresent notification: UNNotification,
         withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void
     ) {
-        completionHandler([.badge, .sound, .banner])
+        completionHandler([.badge, .sound, .banner, .list])
+    }
+
+    public func userNotificationCenter(
+        _ center: UNUserNotificationCenter,
+        didReceive response: UNNotificationResponse,
+        withCompletionHandler completionHandler: @escaping () -> Void
+    ) {
+        completionHandler()
     }
 
     private var hasAuthorization: Bool {
@@ -136,6 +149,10 @@ public final class DefaultLocalNotificationsController: NSObject, LocalNotificat
                 return false
             }
         }
+    }
+
+    private static var notificationSound: UNNotificationSound {
+        UNNotificationSound(named: UNNotificationSoundName("sound.wav"))
     }
 
     private func add(_ request: UNNotificationRequest) async throws {

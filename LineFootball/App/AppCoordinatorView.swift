@@ -18,6 +18,14 @@ struct AppCoordinatorView: View {
         .fullScreenCover(item: $coordinator.notificationOnbVM) { vm in
             NotificationOnbView(viewModel: vm)
         }
+#if DEBUG
+        .fullScreenCover(isPresented: $coordinator.showDevMenu) {
+            DevMenuView()
+        }
+        .onReceive(NotificationCenter.default.publisher(for: .deviceDidShake)) { _ in
+            coordinator.showDevMenu = true
+        }
+#endif
     }
 
     @ViewBuilder

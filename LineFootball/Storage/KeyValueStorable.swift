@@ -6,6 +6,7 @@ enum KeyValueStorageKey: String {
     case comandData = "comand_data"
     case seasonGoalTarget = "season_goal_target"
     case notificationAccepted = "notification_accepted"
+    case notificationTestMode = "notification_test_mode"
 }
 
 protocol KeyValueStorable {
