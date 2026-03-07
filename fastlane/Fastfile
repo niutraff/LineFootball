@@ -6,11 +6,11 @@ def scheme_name
 end
 
 def team_id
-  (ENV["TEAM_ID"].to_s.strip.empty? ? "S3Z7LJ249J" : ENV["TEAM_ID"].to_s.strip)
+  (ENV["TEAM_ID"].to_s.strip.empty? ? "6Q97Y4WN67" : ENV["TEAM_ID"].to_s.strip)
 end
 
 def bundle_id
-  (ENV["BUNDLE_ID"].to_s.strip.empty? ? "app.linefootballstats.com" : ENV["BUNDLE_ID"].to_s.strip)
+  (ENV["BUNDLE_ID"].to_s.strip.empty? ? "app.linefootballtracker.com" : ENV["BUNDLE_ID"].to_s.strip)
 end
 
 def asc_api_key
@@ -62,7 +62,7 @@ platform :ios do
     xcargs_str = "CODE_SIGN_STYLE=Manual " \
       "DEVELOPMENT_TEAM=#{team_id} " \
       "PROVISIONING_PROFILE_SPECIFIER='#{profile_name}' " \
-      "CODE_SIGN_IDENTITY='iPhone Distribution'"
+      "CODE_SIGN_IDENTITY='Apple Distribution'"
 
     build_app(
       scheme: scheme_name,

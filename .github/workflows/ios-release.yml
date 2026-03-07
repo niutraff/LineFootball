@@ -14,6 +14,8 @@ jobs:
     env:
       PROJECT: "LineFootball.xcodeproj"
       SCHEME: "LineFootball"
+      TEAM_ID: "6Q97Y4WN67"
+      BUNDLE_ID: "app.linefootballtracker.com"
       CI: "1"
       SKIP_BUILD_NUMBER_INCREMENT: "1"
 

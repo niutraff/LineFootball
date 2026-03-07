@@ -29,8 +29,8 @@ fastlane ios beta
 
 - `PROJECT` - Path to .xcodeproj (LineFootball.xcodeproj)
 - `SCHEME` - Xcode scheme name (LineFootball)
-- `TEAM_ID` - Apple Developer Team ID (S3Z7LJ249J)
-- `BUNDLE_ID` - Bundle Identifier (app.linefootballstats.com)
+- `TEAM_ID` - Apple Developer Team ID (6Q97Y4WN67 — Ne-Va Spa)
+- `BUNDLE_ID` - Bundle Identifier (app.linefootballtracker.com)
 - `APP_STORE_CONNECT_KEY_ID` - ASC API Key ID
 - `APP_STORE_CONNECT_ISSUER_ID` - ASC Issuer ID
 - `APP_STORE_CONNECT_API_KEY` - ASC API Key content (.p8)
